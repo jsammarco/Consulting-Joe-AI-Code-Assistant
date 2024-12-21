@@ -21,7 +21,7 @@ Consulting Joe AI Code Assistant is a web-based application that leverages the O
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/consultingjoe-ai-code-assistant.git
+   git clone https://github.com/jsammarco/Consulting-Joe-AI-Code-Assistant.git
    cd consultingjoe-ai-code-assistant
    ```
 
@@ -44,15 +44,17 @@ Consulting Joe AI Code Assistant is a web-based application that leverages the O
 
 ```
 consultingjoe-ai-code-assistant
-├── index.js         # Main server file
-├── package.json     # Project dependencies and scripts
-├── public/          # Static files (HTML, CSS, JS)
-│   ├── index.html   # Main frontend HTML file
-│   ├── styles.css   # Optional styles
-│   └── app.js       # Frontend JavaScript
-├── src/             # JavaScript libraries
-│   └── marked.js    # Example library
-└── README.md        # Project documentation
+├── index.js             # Main server file
+├── package.json         # Project dependencies and scripts
+├── public/              # Static files (HTML, CSS, JS)
+│   ├── index.html       # Main frontend HTML file
+│   ├── styles.css       # Optional styles
+│   └── app.js           # Frontend JavaScript
+├── thirdparty/          # JavaScript libraries
+│   ├── marked.min.js    # MarkDown library
+│   ├── highlight.min.js # Highlight library
+│   ├── purify.min.js    # Purify library
+└── README.md            # Project documentation
 ```
 
 ## API Endpoints
@@ -85,22 +87,15 @@ Handles chat interactions with the AI.
 - Streams real-time data if `stream` is `true`.
 - Returns a JSON object otherwise.
 
-### `POST /generate`
-Generates a response based on a model and prompt.
-
-#### Request Body:
-```json
-{
-  "model": "granite3.1-dense",
-  "prompt": "Write a function to reverse a string."
-}
-```
+### `GET /models`
+Fetches the list of available models from the Ollama backend.
 
 #### Response:
 ```json
-{
-  "message": "Here is the function to reverse a string..."
-}
+[
+  "granite3.1-dense",
+  "granite-light"
+]
 ```
 
 ## Frontend Usage
@@ -150,5 +145,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 For questions, feedback, or support, please contact:
 
-- **Website**: [ConsultingJoe.com](https://consultingjoe.com)
-- **Email**: support@consultingjoe.com
+- **Website**: [ConsultingJoe.com](https://ConsultingJoe.com)
+- **Email**: ConsultingJoe@gmail.com
