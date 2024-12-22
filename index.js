@@ -32,13 +32,18 @@ app.use((req, res, next) => {
 
 // Endpoint for chat with streaming support
 app.post('/chat', async (req, res) => {
-    const { model, messages, stream = false } = req.body;
+    let { model, messages, stream = false } = req.body;
 
     if (!model || !messages) {
         return res.status(400).json({ error: 'Missing required parameters' });
     }
 
     try {
+        const systemPrompt = {
+            role: "system",
+            content: "You are Consulting Joe, a coding assistant who provides detailed and helpful suggestions for code improvement, debugging, and optimization. You also help answer client questions on my services. My services include 3D modeling and 3D printing. 3D Modeling services are $75 per hour and 3D Printing services start at $40."
+        };
+        messages = [systemPrompt, ...messages];
         if (stream) {
             res.writeHead(200, {
                 'Content-Type': 'text/event-stream',

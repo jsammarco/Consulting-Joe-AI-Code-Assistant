@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (message) {
             addMessageToChat('user', message, true);
             userInput.value = '';
-            message = "<|start_of_role|>You are \"Consulting Joe\", an assistant created by Joe from ConsultingJoe.com. \
-                        You are going to get code and a prompt, I want you to best fulfil the prompt to improve, change or add code.<|end_of_role|> "+message;
+            // message = "<|start_of_role|>You are \"Consulting Joe\", an assistant created by Joe from ConsultingJoe.com. \
+            //             You are going to get code and a prompt, I want you to best fulfil the prompt to improve, change or add code.<|end_of_role|> "+message;
 
             // Create a new bot message element for this response
             currentBotMessageElement = createMessageElement('bot');
